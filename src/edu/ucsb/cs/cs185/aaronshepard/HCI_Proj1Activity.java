@@ -11,6 +11,14 @@ import android.widget.TextView;
 public class HCI_Proj1Activity extends Activity {
     /** Called when the activity is first created. */
 	
+	//------------------------------------------------------
+	// below link defines vertical and horizontal int values
+	//http://developer.android.com/reference/android/widget/LinearLayout.html#VERTICAL
+	//------------------------------------------------------
+	private static final int VERTICAL = 1;
+	private static final int HORIZONTAL = 0;
+	private static final int CENTER_VERTICAL = 16;
+	
 	private LinearLayout m_layout;
 	private TextView tv_count_display;
 	private Button b_change_count;
@@ -40,6 +48,8 @@ public class HCI_Proj1Activity extends Activity {
         
         //crate layout to store views
         m_layout = new LinearLayout(this);
+        m_layout.setOrientation(VERTICAL);
+        m_layout.setGravity(CENTER_VERTICAL);
         
         m_layout.addView(tv_count_display);
         m_layout.addView(b_change_count);
