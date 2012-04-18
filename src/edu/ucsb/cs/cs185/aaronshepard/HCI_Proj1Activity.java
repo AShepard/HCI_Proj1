@@ -18,13 +18,16 @@ public class HCI_Proj1Activity extends Activity {
 	private static final int VERTICAL = 1;
 	private static final int HORIZONTAL = 0;
 	private static final int CENTER_VERTICAL = 16;
+	private static final int CENTER_HORIZONTAL = 15;
+	private static final int CENTER = 17;
 	
 	private LinearLayout m_layout;
 	private TextView tv_count_display;
 	private Button b_change_count;
 	
+	private static final String m_button_text = "Click me !";
 	private static final String m_output_1 = "You clicked ";
-	private static final String m_output_2 = " times";
+	private static final String m_output_2 = " times.";
 	private int m_counter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,15 +44,15 @@ public class HCI_Proj1Activity extends Activity {
         //create text view to display count
         tv_count_display = new TextView(this);
         tv_count_display.setText(m_output_1 + m_counter + m_output_2);
-        
+        tv_count_display.setGravity(CENTER);
         //create button to update counter
         b_change_count = new Button(this);
-        b_change_count.setText("Click me!");
+        b_change_count.setText(m_button_text);
         
         //crate layout to store views
         m_layout = new LinearLayout(this);
         m_layout.setOrientation(VERTICAL);
-        m_layout.setGravity(CENTER_VERTICAL);
+        m_layout.setGravity(CENTER_HORIZONTAL);
         
         m_layout.addView(tv_count_display);
         m_layout.addView(b_change_count);
@@ -60,7 +63,7 @@ public class HCI_Proj1Activity extends Activity {
         //create listener for button
         b_change_count.setOnClickListener(new OnClickListener() {
 			
-			@Override
+			//@Override
 			public void onClick(View v) {
 				updateTextView();
 				
